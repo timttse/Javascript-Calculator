@@ -1,51 +1,54 @@
 function Calculator(){
 
 	// this allows access using dot notation. c.calculation, c.nums, etc
-	this.calculation=""; 
-	this.currNum="";
-	this.currOp="";
 	this.order=[];
-
-	// defines private vars
-	var private="no dot notation";
+	this.lastInputType="";
 
 	this.appendNum = function(num){
-		this.currNum+=num;
-		this.currOp="";
-		return this.calculation+=num;
+		var l=this.lastInputType;
+		if(l==="" || l==="op"){
+			this.order.push(num);
+		} else if(l==="num"){
+			this.order[this.order.length-1]+=num;
+		} 
+		this.lastInputType="num";
 	};
 
 	this.appendOp = function(op){
-		if(this.currOp===""){
-			this.calculation+=op;
-		} else {
-			this.calculation=this.calculation.slice(0,-1)+op;
+		var l=this.lastInputType;
+		if(l==="num"){
+			this.order.push(op);
+		} else if (this.lastInputType==="op"){
+			this.order[this.order.length-1]=op;
+		} else if(this.lastInputType===""){
+
 		}
-		this.currNum="";
-		this.currOp=op;
-		return this.calculation;
+		this.lastInputType="op";
 	}
 
 	this.equals = function(){
-		return eval(this.calculation);
+		if(this.lastInputType==="num"){
+			if(this.order.length===0){
+				return 0;
+			}
+			return eval(this.order.join(''));
+		} else {
+			this.order.pop();
+			return eval(this.order.join(''));
+		}
 	}
 
 	this.clearAll = function(){
-		this.currNum="";
-		this.currOp="";
-		this.calculation="";
+		this.order=[];
 	}
 
-	// clear last number or operation
 	this.clear = function(){
-		if(this.currNum===""){
-			this.calculation=this.calculation.slice(0,-1);
-			if (this.calculation!=""){this.currOp=""}
-		} else if (this.currOp===""){
-			this.calculation=this.calculation.slice(0,-1);
+		if(this.lastInputType==="num"){
+			this.lastInputType="op";
+		} else {
+			this.lastInputType="num";
 		}
-		this.currNum="";
-		this.currOp="";
+		this.order.pop();
 	}
 
 }
@@ -54,11 +57,23 @@ var c = new Calculator();
 c.appendNum("1")
 c.appendNum("0");
 c.appendOp("+");
+
 c.appendOp("-");
 c.appendNum("2");
 c.appendOp("-");
 c.appendOp("+");
 c.appendNum("1");
+// c.clearAll();
 
+c.clear();
+// c.clear();
+// c.clear();
+// c.clear();
+// c.clear();
+
+// c.equals();
+// console.log(c.lastInputType);
+// console.log(c.order);
 // console.log(c.equals());
+console.log(eval("2^2"));
 
