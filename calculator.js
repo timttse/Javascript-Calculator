@@ -23,7 +23,7 @@ function Calculator(){
 		} else if (l==="op"){
 			this.order[this.order.length-1]=op;
 		} else if(l===""){
-
+			this.order.push("0",op);
 		}
 		this.lastInputType="op";
 	};
