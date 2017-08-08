@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="script.js"></script>
+	<title>Javascript Calculator</title>
+	<style type="text/css">
+		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 3px; width:400px;
+		  min-height: 350px;padding: 5px 15px 5px 15px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+		  .buttongrid{margin:5px;}
+		.btn{margin:2px; width:50px;}
+		.btn-eq{width:102px;}
+	</style>
+</head>
+<body>
+	<div class="calculator container-fluid">
+		<h3>Electronic Calculator</h3>
+		<input class="display" type="text"/>
+		<div class="buttongrid">
+			<div class="row buttonRow">
+				<button class="btn btn-op">AC</button><button class="btn btn-op">CE</button><button class="btn btn-op">&#8592;</button><button class="btn btn-op">&#247;</button>
+			</div>
+			<div class="row buttonRow">
+				<button class="btn btn-num">7</button><button class="btn btn-num">8</button><button class="btn btn-num">9</button><button class="btn btn-op">x</button>
+			</div>
+			<div class="row buttonRow">
+				<button class="btn btn-num">4</button><button class="btn btn-num">5</button><button class="btn btn-num">6</button><button class="btn btn-op">-</button>
+			</div>
+			<div class="row buttonRow">
+				<button class="btn btn-num">1</button><button class="btn btn-num">2</button><button class="btn btn-num">3</button><button class="btn btn-num">+</button>
+			</div>
+			<div class="row buttonRow">
+				<button class="btn btn-num">0</button><button class="btn btn-num">.</button><button class="btn btn-op btn-eq">=</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

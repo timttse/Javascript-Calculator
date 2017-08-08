@@ -56,6 +56,8 @@ function Calculator(){
 var c = new Calculator();
 c.appendNum("1")
 c.appendNum("0");
+c.appendNum(".");
+c.appendNum("1");
 c.appendOp("+");
 
 c.appendOp("-");
@@ -74,6 +76,6 @@ c.clear();
 // c.equals();
 // console.log(c.lastInputType);
 // console.log(c.order);
-// console.log(c.equals());
-console.log(eval("2^2"));
+console.log(c.equals());
+// console.log(eval("2^2"));
 
