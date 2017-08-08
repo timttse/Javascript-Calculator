@@ -8,20 +8,24 @@
   	<script src="script.js"></script>
 	<title>Javascript Calculator</title>
 	<style type="text/css">
-		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 3px; width:400px;
-		  min-height: 350px;padding: 5px 15px 5px 15px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 3px; width:300px;
+		  min-height: 320px;padding: 5px 15px 0px 15px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 		  .buttongrid{margin:5px;}
 		.btn{margin:2px; width:50px;}
-		.btn-eq{width:102px;}
+		/*.btn-eq{width:102px;}*/
+		.btn-zero{width:102px;}
+		.btn-op{background-color: orange;color:#fff;}
+		.btn-clear{background-color: red;color:#fff;}
+		.btn-num{/*background-color: black; color:#fff*/}
 	</style>
 </head>
 <body>
 	<div class="calculator container-fluid">
 		<h3>Electronic Calculator</h3>
-		<input class="display" type="text"/>
+		<input class="display" type="text" disabled/>
 		<div class="buttongrid">
 			<div class="row buttonRow">
-				<button class="btn btn-op">AC</button><button class="btn btn-op">CE</button><button class="btn btn-op">&#8592;</button><button class="btn btn-op">&#247;</button>
+				<button class="btn btn-clear">AC</button><button class="btn btn-clear">CE</button><button class="btn btn-back">&#8592;</button><button class="btn btn-op">&#247;</button>
 			</div>
 			<div class="row buttonRow">
 				<button class="btn btn-num">7</button><button class="btn btn-num">8</button><button class="btn btn-num">9</button><button class="btn btn-op">x</button>
@@ -30,10 +34,10 @@
 				<button class="btn btn-num">4</button><button class="btn btn-num">5</button><button class="btn btn-num">6</button><button class="btn btn-op">-</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num">1</button><button class="btn btn-num">2</button><button class="btn btn-num">3</button><button class="btn btn-num">+</button>
+				<button class="btn btn-num">1</button><button class="btn btn-num">2</button><button class="btn btn-num">3</button><button class="btn btn-op">+</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num">0</button><button class="btn btn-num">.</button><button class="btn btn-op btn-eq">=</button>
+				<button class="btn btn-num btn-zero">0</button><button class="btn btn-num">.</button><button class="btn btn-op btn-eq">=</button>
 			</div>
 		</div>
 	</div>
