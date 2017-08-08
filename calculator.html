@@ -47,6 +47,10 @@
 			displayCalc("");
 		});
 
+		$(".btn-back").click(function(){
+			calc.back();
+			displayCalc(calc.order.join(''));
+		});
 
 		$(".btn-eq").click(function(){
 			var equals=calc.equals();

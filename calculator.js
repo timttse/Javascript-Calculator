@@ -8,7 +8,11 @@ function Calculator(){
 		if(l==="" || l==="op"){
 			this.order.push(num);
 		} else if(l==="num"){
-			this.order[this.order.length-1]+=num;
+			if(this.order.length>1){
+				this.order[this.order.length-1]+=num;
+			} else {
+				this.order.push(num);
+			}
 		} else if (l==="eq"){
 			this.order=[];
 			this.order.push(num);
@@ -37,7 +41,6 @@ function Calculator(){
 			r=eqEval(this.order);
 		} else {
 			this.order.pop();
-			// this.lastInputType="num";
 			r=eqEval(this.order);
 		}
 		this.order=[];
@@ -45,6 +48,19 @@ function Calculator(){
 		this.lastInputType="eq";
 		return r;
 	};
+
+	this.back = function(){
+		var ord=this.order;
+		var l=this.lastInputType;
+		if(ord.length>0){
+			if(this.order[ord.length-1].length>1){
+				this.order[ord.length-1]=this.order[ord.length-1].slice(0,-1);
+			} else {
+				this.clear();
+			}
+
+		}
+	}
 
 	this.clearAll = function(){
 		this.order=[];
@@ -56,7 +72,9 @@ function Calculator(){
 		} else {
 			this.lastInputType="num";
 		}
+		console.log(this.order);
 		this.order.pop();
+		console.log(this.order);
 	};
 
 	function eqEval(arr){
@@ -76,11 +94,21 @@ function Calculator(){
 
 }
 
-var c = new Calculator();
-c.appendNum("5");
-c.appendOp("+");
-c.appendNum("5");
-console.log(c.equals());
-c.appendNum("1");
-console.log(c.order);
-// console.log(eval("4÷2"));
+// var c = new Calculator();
+// c.appendNum("5");
+// c.appendOp("+");
+// c.appendNum("5");
+// c.appendNum("2");
+// c.appendNum("6");
+// c.back();
+// c.back();
+// c.back();
+// c.back();
+// c.back();
+// c.back();
+// console.log(c.order);
+// console.log(c.equals());
+// console.log(c.lastInputType);
+// c.clear();
+// console.log(c.lastInputType);
+// // console.log(eval("4÷2"));
