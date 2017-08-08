@@ -1,12 +1,11 @@
 function Calculator(){
 
-	// this allows access using dot notation. c.calculation, c.nums, etc
 	this.order=[];
 	this.lastInputType="";
 
 	this.appendNum = function(num){
 		var l=this.lastInputType;
-		if(l==="" || l==="op"){
+		if(l==="" || l==="op" || l==="eq"){
 			this.order.push(num);
 		} else if(l==="num"){
 			this.order[this.order.length-1]+=num;
@@ -24,23 +23,28 @@ function Calculator(){
 
 		}
 		this.lastInputType="op";
-	}
+	};
 
 	this.equals = function(){
+		var r=0;
 		if(this.lastInputType==="num"){
 			if(this.order.length===0){
-				return 0;
+				r=0;
 			}
-			return eval(this.order.join(''));
+			r=eqEval(this.order);
 		} else {
 			this.order.pop();
-			return eval(this.order.join(''));
+			this.lastInputType="num";
+			r=eqEval(this.order);
 		}
-	}
+		this.order=[];
+		this.order.push(r);
+		return r;
+	};
 
 	this.clearAll = function(){
 		this.order=[];
-	}
+	};
 
 	this.clear = function(){
 		if(this.lastInputType==="num"){
@@ -49,33 +53,30 @@ function Calculator(){
 			this.lastInputType="num";
 		}
 		this.order.pop();
-	}
+	};
+
+	function eqEval(arr){
+		if(arr.len===1){
+			if(this.lastInputType==="num"){
+				return arr[0];
+			} else {
+				return 0;
+			}
+			
+		} else if(arr.len===0){
+			return 0;
+		} else {
+			return eval(arr.join(''));
+		}
+	};
 
 }
 
-var c = new Calculator();
-c.appendNum("1")
-c.appendNum("0");
-c.appendNum(".");
-c.appendNum("1");
-c.appendOp("+");
-
-c.appendOp("-");
-c.appendNum("2");
-c.appendOp("-");
-c.appendOp("+");
-c.appendNum("1");
-// c.clearAll();
-
-c.clear();
-// c.clear();
-// c.clear();
-// c.clear();
-// c.clear();
-
-// c.equals();
-// console.log(c.lastInputType);
+// var c = new Calculator();
+// c.appendNum("5");
+// c.appendOp("+");
+// c.appendNum("5");
+// console.log(c.equals());
+// c.appendNum("1");
 // console.log(c.order);
-console.log(c.equals());
-// console.log(eval("2^2"));
-
+// console.log(eval("4÷2"));

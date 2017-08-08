@@ -10,14 +10,53 @@
 	<style type="text/css">
 		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 3px; width:300px;
 		  min-height: 320px;padding: 5px 15px 0px 15px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-		  .buttongrid{margin:5px;}
+		.display{text-align: right;}
+		.buttongrid{margin:5px;}
 		.btn{margin:2px; width:50px;}
-		/*.btn-eq{width:102px;}*/
 		.btn-zero{width:102px;}
 		.btn-op{background-color: orange;color:#fff;}
-		.btn-clear{background-color: red;color:#fff;}
+		.btn-clear-all, .btn-clear{background-color: red;color:#fff;}
 		.btn-num{/*background-color: black; color:#fff*/}
 	</style>
+	<script>
+	function displayCalc(disp){
+		$(".display").val(disp);
+	}
+	$(document).ready(function(){
+		var calc=new Calculator();
+
+		$(".btn-num").click(function(){
+			calc.appendNum($(this).val())
+			displayCalc(calc.order.join(''));
+		});
+
+		$(".btn-op").click(function(){
+			calc.appendOp($(this).val())
+			displayCalc(calc.order.join(''));
+		});
+
+		$(".btn-clear").click(function(){
+			calc.clear();
+			console.log(calc.order);
+			displayCalc(calc.order.join(''));
+		});
+
+		$(".btn-clear-all").click(function(){
+			calc.clearAll();
+			console.log(calc.order);
+			displayCalc("");
+		});
+
+
+		$(".btn-eq").click(function(){
+			var equals=calc.equals();
+			displayCalc(calc.order.join(''));
+			console.log(equals);
+			console.log(calc.order);
+		});
+
+	});
+	</script>
 </head>
 <body>
 	<div class="calculator container-fluid">
@@ -25,19 +64,19 @@
 		<input class="display" type="text" disabled/>
 		<div class="buttongrid">
 			<div class="row buttonRow">
-				<button class="btn btn-clear">AC</button><button class="btn btn-clear">CE</button><button class="btn btn-back">&#8592;</button><button class="btn btn-op">&#247;</button>
+				<button class="btn btn-clear-all">AC</button><button class="btn btn-clear">CE</button><button class="btn btn-back">&#8592;</button><button class="btn btn-op" value="/">&#247;</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num">7</button><button class="btn btn-num">8</button><button class="btn btn-num">9</button><button class="btn btn-op">x</button>
+				<button class="btn btn-num" value="7">7</button><button class="btn btn-num" value="8">8</button><button class="btn btn-num" value="9">9</button><button class="btn btn-op" value="*">x</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num">4</button><button class="btn btn-num">5</button><button class="btn btn-num">6</button><button class="btn btn-op">-</button>
+				<button class="btn btn-num" value="4">4</button><button class="btn btn-num" value="5">5</button><button class="btn btn-num" value="6">6</button><button class="btn btn-op" value="-">-</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num">1</button><button class="btn btn-num">2</button><button class="btn btn-num">3</button><button class="btn btn-op">+</button>
+				<button class="btn btn-num" value="1">1</button><button class="btn btn-num" value="2">2</button><button class="btn btn-num" value="3">3</button><button class="btn btn-op" value="+">+</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num btn-zero">0</button><button class="btn btn-num">.</button><button class="btn btn-op btn-eq">=</button>
+				<button class="btn btn-num btn-zero" value="0">0</button><button class="btn btn-num" value=".">.</button><button class="btn btn-eq">=</button>
 			</div>
 		</div>
 	</div>
