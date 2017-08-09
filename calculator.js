@@ -5,11 +5,17 @@ function Calculator(){
 
 	this.appendNum = function(num){
 		var l=this.lastInputType;
+		var lastIn=this.order[this.order.length-1];
 		if(l==="" || l==="op"){
 			this.order.push(num);
 		} else if(l==="num"){
-			if(this.order.length>1){
-				this.order[this.order.length-1]+=num;
+			if(this.order.length>=1){
+
+				//check if decimal exists
+				if(num!=="." || lastIn.indexOf(num)===-1){
+					this.order[this.order.length-1]+=num;
+				}
+				// this.order[this.order.length-1]+=num;
 			} else {
 				this.order.push(num);
 			}
@@ -23,6 +29,9 @@ function Calculator(){
 	this.appendOp = function(op){
 		var l=this.lastInputType;
 		if(l==="num" | l==="eq"){
+			if(this.order[this.order.length-1]==="."){
+				this.order[this.order.length-1]="0.0"
+			}
 			this.order.push(op);
 		} else if (l==="op"){
 			this.order[this.order.length-1]=op;
@@ -94,11 +103,12 @@ function Calculator(){
 
 }
 
-// var c = new Calculator();
+var c = new Calculator();
 // c.appendNum("5");
 // c.appendOp("+");
-// c.appendNum("5");
-// c.appendNum("2");
+c.appendNum("5");
+console.log(c.lastInputType)
+c.appendNum("2");
 // c.appendNum("6");
 // c.back();
 // c.back();
@@ -109,6 +119,7 @@ function Calculator(){
 // console.log(c.order);
 // console.log(c.equals());
 // console.log(c.lastInputType);
-// c.clear();
+c.clear();
+console.log(c.order);
 // console.log(c.lastInputType);
 // // console.log(eval("4÷2"));

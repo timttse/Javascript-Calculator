@@ -5,18 +5,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   	<script src="calculator.js"></script>
 	<title>Javascript Calculator</title>
 	<style type="text/css">
-		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 3px; width:300px;
-		  min-height: 320px;padding: 5px 15px 0px 15px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-		.display{text-align: right;}
+		body{background-color: gray;}
+		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 10px; width:300px;
+			min-height: 320px;padding: 5px 15px 0px 15px;background-color: #99CCFF; box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.5), inset -1px -6px 12px 0.1px #66B2FF;}
+		.display{text-align: right;width:212px;padding:5px;font-family: "Orbitron", sans-serif;font-weight: bold;background-color: #c3c2ab;border-color:#CCE5FF;}
 		.buttongrid{margin:5px;}
 		.btn{margin:2px; width:50px;}
-		.btn-zero{width:102px;}
-		.btn-op{background-color: orange;color:#fff;}
-		.btn-clear-all, .btn-clear{background-color: red;color:#fff;}
-		.btn-num{/*background-color: black; color:#fff*/}
+		.btn-zero{width:103px;}
+		.btn-op{background-color: orange;color:#fff;font-weight: bold;}
+
+		.btn-back{background-color: #292B2C;color:#fff !important;font-weight: bold;}
+		.btn-back:hover{background-color: #333;color:#fff} 
+
+		.btn-num{background-color: #C0C0C0;font-weight: bold;}
+		.btn-num:hover{background-color: #A0A0A0}
+		.btn-eq{font-weight: bold;}
 	</style>
 	<script>
 	function displayCalc(disp){
@@ -64,23 +71,23 @@
 </head>
 <body>
 	<div class="calculator container-fluid">
-		<h3>Electronic Calculator</h3>
+		<h3>Basic Calculator</h3>
 		<input class="display" type="text" disabled/>
 		<div class="buttongrid">
 			<div class="row buttonRow">
-				<button class="btn btn-clear-all">AC</button><button class="btn btn-clear">CE</button><button class="btn btn-back">&#8592;</button><button class="btn btn-op" value="/">&#247;</button>
+				<button class="btn btn-clear-all btn-danger">AC</button><button class="btn btn-clear btn-danger">CE</button><button class="btn btn-back ">&#8592;</button><button class="btn btn-op btn-warning" value="/">&#247;</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num" value="7">7</button><button class="btn btn-num" value="8">8</button><button class="btn btn-num" value="9">9</button><button class="btn btn-op" value="*">x</button>
+				<button class="btn btn-num" value="7">7</button><button class="btn btn-num" value="8">8</button><button class="btn btn-num" value="9">9</button><button class="btn btn-op btn-warning" value="*">x</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num" value="4">4</button><button class="btn btn-num" value="5">5</button><button class="btn btn-num" value="6">6</button><button class="btn btn-op" value="-">-</button>
+				<button class="btn btn-num" value="4">4</button><button class="btn btn-num" value="5">5</button><button class="btn btn-num" value="6">6</button><button class="btn btn-op btn-warning" value="-">-</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num" value="1">1</button><button class="btn btn-num" value="2">2</button><button class="btn btn-num" value="3">3</button><button class="btn btn-op" value="+">+</button>
+				<button class="btn btn-num" value="1">1</button><button class="btn btn-num" value="2">2</button><button class="btn btn-num" value="3">3</button><button class="btn btn-op btn-warning" value="+">+</button>
 			</div>
 			<div class="row buttonRow">
-				<button class="btn btn-num btn-zero" value="0">0</button><button class="btn btn-num" value=".">.</button><button class="btn btn-eq">=</button>
+				<button class="btn btn-num btn-zero" value="0">0</button><button class="btn btn-num" value=".">.</button><button class="btn btn-eq btn-primary">=</button>
 			</div>
 		</div>
 	</div>
