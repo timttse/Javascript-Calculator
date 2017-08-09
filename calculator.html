@@ -6,68 +6,11 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  	<link rel="stylesheet" type="text/css" href="styles.css">
   	<script src="calculator.js"></script>
+  	<script src="script.js"></script>
 	<title>Javascript Calculator</title>
-	<style type="text/css">
-		body{background-color: gray;}
-		.calculator {position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);text-align: center;vertical-align: center;border: 1px solid gray;border-radius: 10px; width:300px;
-			min-height: 320px;padding: 5px 15px 0px 15px;background-color: #99CCFF; box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.5), inset -1px -6px 12px 0.1px #66B2FF;}
-		.display{text-align: right;width:212px;padding:5px;font-family: "Orbitron", sans-serif;font-weight: bold;background-color: #c3c2ab;border-color:#CCE5FF;}
-		.buttongrid{margin:5px;}
-		.btn{margin:2px; width:50px;}
-		.btn-zero{width:103px;}
-		.btn-op{background-color: orange;color:#fff;font-weight: bold;}
 
-		.btn-back{background-color: #292B2C;color:#fff !important;font-weight: bold;}
-		.btn-back:hover{background-color: #333;color:#fff} 
-
-		.btn-num{background-color: #C0C0C0;font-weight: bold;}
-		.btn-num:hover{background-color: #A0A0A0}
-		.btn-eq{font-weight: bold;}
-	</style>
-	<script>
-	function displayCalc(disp){
-		$(".display").val(disp);
-	}
-	$(document).ready(function(){
-		var calc=new Calculator();
-
-		$(".btn-num").click(function(){
-			calc.appendNum($(this).val())
-			displayCalc(calc.order.join(''));
-		});
-
-		$(".btn-op").click(function(){
-			calc.appendOp($(this).val())
-			displayCalc(calc.order.join(''));
-		});
-
-		$(".btn-clear").click(function(){
-			calc.clear();
-			console.log(calc.order);
-			displayCalc(calc.order.join(''));
-		});
-
-		$(".btn-clear-all").click(function(){
-			calc.clearAll();
-			console.log(calc.order);
-			displayCalc("");
-		});
-
-		$(".btn-back").click(function(){
-			calc.back();
-			displayCalc(calc.order.join(''));
-		});
-
-		$(".btn-eq").click(function(){
-			var equals=calc.equals();
-			displayCalc(calc.order.join(''));
-			console.log(equals);
-			console.log(calc.order);
-		});
-
-	});
-	</script>
 </head>
 <body>
 	<div class="calculator container-fluid">
