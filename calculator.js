@@ -53,7 +53,7 @@ function Calculator(){
 			r=eqEval(this.order);
 		}
 		this.order=[];
-		this.order.push(r);
+		this.order.push(r+'');
 		this.lastInputType="eq";
 		return r;
 	};
@@ -103,23 +103,24 @@ function Calculator(){
 
 }
 
-var c = new Calculator();
+// var c = new Calculator();
+// // c.appendNum("5");
+// // c.appendOp("+");
 // c.appendNum("5");
-// c.appendOp("+");
-c.appendNum("5");
-console.log(c.lastInputType)
-c.appendNum("2");
-// c.appendNum("6");
-// c.back();
-// c.back();
-// c.back();
-// c.back();
-// c.back();
-// c.back();
+// console.log(c.lastInputType)
+// c.appendNum("2");
+// // c.appendNum("6");
+// // c.back();
+// // c.back();
+// // c.back();
+// // c.back();
+// // c.back();
+// // c.back();
 // console.log(c.order);
 // console.log(c.equals());
-// console.log(c.lastInputType);
-c.clear();
-console.log(c.order);
-// console.log(c.lastInputType);
-// // console.log(eval("4÷2"));
+// console.log(c.order);
+// // console.log(c.lastInputType);
+// // c.clear();
+// // console.log(c.order);
+// // console.log(c.lastInputType);
+// // // console.log(eval("4÷2"));
